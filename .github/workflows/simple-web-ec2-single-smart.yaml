@@ -48,7 +48,12 @@ jobs:
       - name: 6. AWS Deploy를 통해 배포한다
         id: deploy
         run: |
-          DEPLOYMENT_ID=$(aws deploy create-deployment --application-name simple-web-content --deployment-group-name simple-web-deploy-group --s3-location bucket=${{ secrets.S3_BUCKET }},key=deploy.zip,bundleType=zip --output text --query 'deploymentId')
+          DEPLOYMENT_ID=$(aws deploy create-deployment \
+            --application-name simple-web-content \
+            --deployment-group-name simple-web-deploy-group \
+            --s3-location bucket=${{ secrets.S3_BUCKET }},key=deploy.zip,bundleType=zip \
+            --output text \
+            --query 'deploymentId')
           #echo "::set-output name=deployment_id::$DEPLOYMENT_ID"
           #echo "{name}=deployment_id" >> $GITHUB_OUTPUT
           echo "deployment_id=${DEPLOYMENT_ID}" >> $GITHUB_OUTPUT
