@@ -1,0 +1,11 @@
+name: practice-workflow
+on: [push, pull_request]
+
+jobs:
+  python-version-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: multiple line cmd
+        run: |
+          python —version
+          pip —version
