@@ -1,4 +1,4 @@
-ROM nginx:alpine
+FROM nginx:alpine
 
 # 기존 nginx 기본 페이지 제거
 RUN rm -rf /usr/share/nginx/html/*
